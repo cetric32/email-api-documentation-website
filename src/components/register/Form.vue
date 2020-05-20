@@ -3,20 +3,20 @@
     <div class="col-md-8 offset-md-2 shadow px-5 py-3">
       <form @submit.prevent="register">
         <div class="form-group">
-          <label for="username">Project/User Name</label>
+          <label for="username">Project/User Name <span class="text-danger">*</span></label>
           <input type="text" class="form-control" id="username"
             required v-model="username"
             placeholder="Enter project/username">
         </div>
         <div class="form-group">
-          <label for="email">Email address</label>
+          <label for="email">Email address<span class="text-danger">*</span></label>
           <input type="email" class="form-control" id="email"
           required v-model="email"
           aria-describedby="emailHelp" placeholder="Enter email">
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.API key will be send here</small>
         </div>
         <div class="form-group">
-          <label for="customer_type" class="pr-3">Project/User Type</label>
+          <label for="customer_type" class="pr-3">Project/User Type<span class="text-danger">*</span></label>
           <select v-model="customer_type"
           required
           class="form-select custom-select" id="customer_type">
@@ -25,7 +25,13 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="u_password">Password</label>
+          <label for="u_password">Website</label>
+          <input type="url" class="form-control"
+          v-model="website"
+          id="u_password" placeholder="Website url">
+        </div>
+        <div class="form-group">
+          <label for="u_password">Password<span class="text-danger">*</span></label>
           <input type="password" class="form-control"
           required v-model="u_password"
           id="u_password" placeholder="Password">
@@ -34,7 +40,7 @@
           Passwords do not match!
         </div>
         <div class="form-group">
-          <label for="conf_pass">Confirm Password</label>
+          <label for="conf_pass">Confirm Password<span class="text-danger">*</span></label>
           <input type="password" class="form-control"
           required v-model="conf_pass"
           id="conf_pass" placeholder="Password">
@@ -62,6 +68,7 @@ export default {
       email: '',
       customer_type: '',
       u_password: '',
+      website: '',
       conf_pass: '',
       agree: '',
       msg: false
@@ -75,7 +82,8 @@ export default {
         username: this.username,
         email: this.email,
         u_password: this.u_password,
-        customer_type: this.customer_type
+        customer_type: this.customer_type,
+        website: this.website
       }
 
       axios.post(url, data)

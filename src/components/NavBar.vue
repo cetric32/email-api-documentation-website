@@ -1,6 +1,12 @@
 <template>
   <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg fixed-top navbar-light  rounded shadow mx-1">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="ad">
+        <strong>Stay Home!</strong> Stay Safe!
+        <button @click="ad=true" type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <nav :class="ad? 'fixed-top' : ''"  class="navbar navbar-expand-lg  navbar-light  rounded shadow mx-1">
       <router-link to="/" class="navbar-brand active pr-5 text-white"><img src="../assets/xend mail.png" alt="Xend Mail Logo"></router-link>
       <button class="navbar-toggler bg-danger" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -27,7 +33,12 @@
 
 <script>
 export default {
-  name: 'NavBar'
+  name: 'NavBar',
+  data () {
+    return {
+      ad: ''
+    }
+  }
 }
 </script>
 
