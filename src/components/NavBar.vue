@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="ad">
+    <div class="alert alert-warning alert-dismissible fade show mt-2" role="alert" id="ad">
         <strong>Stay Home!</strong> Stay Safe!
         <button @click="ad=true" type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
