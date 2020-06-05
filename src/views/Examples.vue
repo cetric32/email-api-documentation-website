@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-5" >
+  <div class="container mt-5 animate__animated animate__bounce" >
    <Nav @code-change-event="changeCode" />
    <Php v-if="code=='php'"  />
    <Js v-if="code == 'js'" />

@@ -20,36 +20,36 @@
         <form @submit.prevent="sendEmail">
           <div class="form-group p-5">
             <div class="row text-left p-1">
-              <label for="name" class="col-4">name</label>
+              <label for="name" class="col-md-4">name</label>
               <input type="text" v-model="name" name="name" id="name"
               placeholder="The email sender name"
-              class="col-8 form-control">
+              class="col-md-8 form-control">
             </div>
-            <div class="row text-left p-1">
-              <label for="to" class="col-4">to</label>
-              <input type="text" v-model="to" name="to" id="to"
-              placeholder="The email recepient"
-              class="col-8 form-control">
-            </div>
-            <div class="row text-left p-1">
-              <label for="from" class="col-4">from</label>
+             <div class="row text-left p-1">
+              <label for="from" class="col-md-4">from</label>
               <input type="text" v-model="from" name="from" id="from"
-              placeholder="The email sender"
-              class="col-8 form-control">
+              placeholder="sender e.g me@web.com"
+              class="col-md-8 form-control">
             </div>
             <div class="row text-left p-1">
-              <label for="subject" class="col-4">subject</label>
+              <label for="to" class="col-md-4">to(comma separated)</label>
+              <input type="text" v-model="to" name="to" id="to"
+              placeholder="e.g me@web.com,test2@domain.org"
+              class="col-md-8 form-control">
+            </div>
+            <div class="row text-left p-1">
+              <label for="subject" class="col-md-4">subject</label>
               <input type="text" v-model="subject" name="subject" id="subject"
               placeholder="The email subject"
-              class="col-8 form-control">
+              class="col-md-8 form-control">
             </div>
             <div class="row text-left p-1">
-              <label for="body" class="col-4">body</label>
+              <label for="body" class="col-md-4">body</label>
               <textarea v-model="body" name="body" id="body" cols="30" rows="4"
               placeholder="The email body(html or text)"
-               class="col-8 form-control"></textarea>
+               class="col-md-8 form-control"></textarea>
             </div>
-            <div class="row mt-3 ml-5">
+            <div class="row mt-3">
               <button id="send" class="btn btn-primary btn-block" type="submit">Send</button>
             </div>
           </div>
@@ -63,13 +63,14 @@
             </div>
             <div class="col-12">
                 <div class="row rounded text-white text-left" id="request">
+                  <!-- The json request object -->
                   <div class="col-12 p-3 m-3">
                       {
                         <div class="p-2">
                            <span class="field">"name"</span>:<span class="value">"{{name}}"</span>,
                         </div>
                         <div class="p-2">
-                           <span class="field">"to"</span>: [ <span class="value">"{{to}}"</span>],
+                           <span class="field">"to"</span>: <span class="value">{{toEmails}}</span>,
                         </div>
                         <div class="p-2">
                           <span class="field">"from"</span>: <span class="value">"{{from}}"</span>,
@@ -81,7 +82,7 @@
                           <span class="field">"bcc"</span>: [<span class="value">"{{bcc}}"</span>],
                         </div>
                         <div class="p-2">
-                          <span class="field">"replyto"</span>: [<span class="value">"{{replyto}}"</span>],
+                          <span class="field">"replyto"</span>: <span class="value">"{{replyto}}"</span>,
                         </div>
                         <div class="p-2">
                           <span class="field">"subject"</span>: <span class="value">"{{subject}}"</span>,
@@ -91,6 +92,7 @@
                         </div>
                       }
                   </div>
+                  <!-- end of json request object -->
                 </div>
             </div>
         </div>
@@ -99,6 +101,7 @@
             The JSON Response Object
             <hr class="m-0 bg-danger">
           </div>
+          <!-- the json response object -->
           <div class="col-11 text-white text-left rounded m-3" id="response">
               <div v-if="error" class="p-2">
                   <span class="field">"error"</span>: <span class="value">"{{error}}"</span>
@@ -110,6 +113,7 @@
                   <span class="field py-5">No request made yet or there are Network errors!</span>
               </div>
           </div>
+          <!-- end of json response object -->
         </div>
       </div>
     </div>
@@ -152,19 +156,24 @@ export default {
   },
   methods: {
     sendEmail () {
-      let url = 'https://sendmail.azuatech.co.ke/api/send'
-      let optionsAxios = {
-        headers: {
-          'X-Api-Key': '19613015545e8586d7160ae8.28634321'
-        }
-      }
-      axios.post(url, {
+      // the data to be sent to email API
+      let emailData = {
         name: this.name,
-        to: [this.to],
+        to: this.toEmails,
         from: this.from,
         subject: this.subject,
         body: this.body
-      }, optionsAxios)
+      }
+      // API url endpoint
+      let url = 'https://sendmail.azuatech.co.ke/api/send'
+
+      let optionsAxios = {
+        headers: {
+          'X-Api-Key': '19613015545e8586d7160ae8.28634321',
+          'Content-type': 'application/json'
+        }
+      }
+      axios.post(url, emailData, optionsAxios)
         .then(resp => {
           document.querySelector('#send').innerHTML = 'Send'
           if (resp.data.message) {
@@ -191,6 +200,11 @@ export default {
       this.from = ''
       this.subject = ''
       this.body = ''
+    }
+  },
+  computed: {
+    toEmails () {
+      return this.to.split(',')
     }
   }
 }

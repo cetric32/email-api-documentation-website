@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home animate__animated animate__swing">
     <Top/>
     <hr>
     <Try/>

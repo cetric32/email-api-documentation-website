@@ -1,5 +1,5 @@
 <template>
-  <div id="documentation">
+  <div class="animate__animated animate__rotateInDownLeft" id="documentation">
     <Main/>
   </div>
 </template>

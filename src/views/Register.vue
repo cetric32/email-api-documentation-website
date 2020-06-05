@@ -1,5 +1,5 @@
 <template>
-  <div class="register mt-5">
+  <div class="register mt-5 animate__animated  animate__rollIn">
     <div class="container mt-5 pt-5 px-5">
       <h1>Register for API Key</h1>
       <p class="lead">

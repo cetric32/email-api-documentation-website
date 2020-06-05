@@ -25,6 +25,9 @@
           <li class="nav-item active">
             <router-link to="/examples" class="nav-link">Code Examples</router-link>
           </li>
+          <li class="nav-item active">
+            <router-link to="/contact" class="nav-link">Contact</router-link>
+          </li>
         </ul>
       </div>
     </nav>
@@ -66,5 +69,4 @@ export default {
 nav{
   background-color: #1e1e1e !important;
 }
-
 </style>
