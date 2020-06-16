@@ -7,7 +7,7 @@
     </p>
     <hr class="my-4">
     <p>Useful for  password resets, contact us form, email marketing, email confirmation e.t.c</p>
-    <router-link class="btn btn-primary btn-lg mr-1" to="/documentation" role="button">Learn more</router-link>
+    <router-link class="btn btn-primary btn-lg mr-1" to="/documentation" role="button">Documentation</router-link>
     <a class="btn btn-primary bg-transparent text-primary btn-lg" href="#try" role="button">Give it a Try</a>
   </div>
 </div>
@@ -21,8 +21,5 @@ export default {
 </script>
 
 <style scoped>
-.jumbotron{
-  background-image: url('../../assets/emails.png');
-}
 
 </style>

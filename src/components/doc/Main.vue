@@ -5,7 +5,7 @@
      <h1> Xend Mail API documentation</h1>
     </div>
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-lg-3">
         <h2>Contents</h2>
         <div class="list-group shadow">
           <div class="list-group-item">
@@ -35,13 +35,14 @@
 
         </div>
       </div>
-      <div class="col-md-8 text-left shadow p-5">
+      <div class="col-lg-9 text-left shadow p-5">
         <div class="row">
           <div class="col-12" id="about">
             <h3>About</h3>
             <p>
                 Xend Mail API is an API for sending emails in web Apps, websites, Desktop applications and mobile apps.
                 Xend Mail is a completely free JSON API for use in programming projects. All you need is an API Key. You can go ahead and  <router-link to="/register">Register for an API Key</router-link>
+                You can also <router-link to="/examples">checkout the API usage examples </router-link> in different programming languages
             </p>
             <div>
               <a href="#top">Go Back To Top</a>
@@ -117,6 +118,18 @@
                   <span class="field">body</span> => this is a JSON  string that holds the body of the email. This parameter is mandatory and can contain either
                   html or text. E.g <code>"body":"&lt;p&gt;test email body&lt;/p&gt;"</code> or <code>"body":"test email body"</code>
                 </li>
+                <li>
+                  <span class="field">smtp</span> => this is a JSON object that holds smtp details of the smtp server the user intends to use to send the
+                  email(s). This parameter is optional, but must contain all required details if provided, else there would be an error and the
+                  email(s) won't be sent. The required details include the smtp host, smtp username, the smtp user password and smtp port.
+                  The formart is <code>"smtp": {
+                  "host": "mail.domain.com ",
+                  "username": "user@domain.com",
+                  "password": "xxxxxxx",
+                  "port": "465"
+                  }</code> <br>
+                  The 'host' should be a valid domain name, and the 'username' should be a valid email address, otherwise an error would be returned
+                </li>
               </ol>
             </p>
             <p>
@@ -124,16 +137,20 @@
             </p>
             <div class="">
               <figure class="figure">
-                <img src="@/assets/json/image1.png" class="figure-img img-fluid rounded" alt="Image 1. Json data with mandatory/required fields.">
+                <img src="@/assets/json/image1.png" class="figure-img img-fluid rounded" alt="Image 1. Json data with mandatory/required fields Xend Mail API.">
                 <figcaption class="figure-caption">Image 1. Json data with mandatory/required fields.</figcaption>
               </figure>
               <figure class="figure">
-                <img src="@/assets/json/image2.png" class="figure-img img-fluid rounded" alt="Image 2.Json data with cc.">
+                <img src="@/assets/json/image2.png" class="figure-img img-fluid rounded" alt="Image 2.Json data with cc Xend Mail API.">
                 <figcaption class="figure-caption">Image 2.Json data with cc.</figcaption>
               </figure>
               <figure class="figure">
-                <img src="@/assets/json/image3.png" class="figure-img img-fluid rounded" alt="Image 3.Json data with html body.">
+                <img src="@/assets/json/image3.png" class="figure-img img-fluid rounded" alt="Image 3.Json data with html body Xend Mail API.">
                 <figcaption class="figure-caption">Image 3.Json data with html body.</figcaption>
+              </figure>
+              <figure class="figure">
+                <img src="@/assets/json/image4.png" class="figure-img img-fluid rounded" alt="Image 4.Json data with smtp Xend Mail API.">
+                <figcaption class="figure-caption">Image 4.Json data with user SMTP server details.</figcaption>
               </figure>
             </div>
             <p>The json request object is what you send to the API endpoint as the email you would like to sent</p>
@@ -198,12 +215,17 @@
                     </li>
                     <li>
                       Not providing all the mandatory/required request object parameters. The mandatory parameters
-                      are <code>name, to, from, subject and body</code>. This should not be empty too
+                      are <code>name, to, from, subject and body</code>. This should not be empty too. Those that are not mandatory include <code>
+                        bcc,cc, replyto, and  smtp
+                      </code>. When provided though(the non mandatory/required fields), should not be empty and should contain the correct JSON type.
                     </li>
                     <li>Providing invalid email addresses. Make sure the emails are in the right format</li>
                     <li>
                       The email address(es) for to, or from, or cc, or bcc being invalid. Only
                       valid email addresses are allowed
+                    </li>
+                    <li>
+                      Empty parameters. If a parameter is provided but it is empty, an error would be returned
                     </li>
                     <li>
                       Incorrect JSON parameter types. The correct types are shown in the table below:

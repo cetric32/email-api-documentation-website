@@ -17,14 +17,20 @@
         </h3>
         <div class="text-left">
            <div>
-          <a href="https://facebook.com/azuatechy"><img src="@/assets/contact/social-facebook-button-blue-icon.png" alt="facebook icon picture"></a>
+          <a target="_blank" href="https://facebook.com/azuatechy"><img src="@/assets/contact/social-facebook-button-blue-icon.png" alt="facebook icon picture"></a>
           <div class="fb-like" data-href="https://facebook.com/azuatechy" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
         </div>
         <div>
-          <a href="https://instagram.com/azuatech"><img src="@/assets/contact/Instagram-icon.png" alt="instagram icon picture"> Instagram</a>
+          <a  target="_blank" href="https://instagram.com/azuatech"><img src="@/assets/contact/Instagram-icon.png" alt="instagram icon picture"> Instagram</a>
         </div>
         <div>
-          <a href="https://twitter.com/azuatechy"><img src="@/assets/contact/twitter-icon.png" alt="twitter icon picture"> Twitter</a>
+          <a  target="_blank" href="https://twitter.com/azuatechy"><img src="@/assets/contact/twitter-icon.png" alt="twitter icon picture"> Twitter</a>
+        </div>
+        <div>
+          <a  target="_blank" href="https://t.me/azuatech"><img src="@/assets/contact/Apps-Telegram-icon.png" alt="telegram icon picture"> Telegram</a>
+        </div>
+        <div>
+          <a target="_blank" href="https://wa.me/254797224768?text=Hi%2C%20I%27m%20contacting%20you%20from%20the%20Xend%20Mail%20Website..."><img src="@/assets/contact/WhatsApp-icon.png" alt="WhatsApp icon picture">WhatsApp</a>
         </div>
         </div>
       </div>
@@ -49,7 +55,7 @@
     <div class="row">
       <div class="col-md-6 offset-md-3">
         Copyright &copy; 2020 <router-link to="/">Xend Mail</router-link> .
-        Powered by <a href="https://azuatech.co.ke">AzuaTech</a>
+        Powered by <a target="_blank" href="https://azuatech.co.ke">AzuaTech</a>
       </div>
     </div>
   </div>

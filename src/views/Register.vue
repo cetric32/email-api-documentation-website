@@ -5,10 +5,11 @@
       <p class="lead">
         For you to use the Xend MAil API you have to register for an API Key. Fill in the form below with the correct
         details for you to start using the API.
-        <code >Note that the API key will be send to the Email address you fill in below.</code>
+        <code >Note that the API key will be send to the Email address you fill in below👇.</code>
+        Procead to <router-link  to="/documentation">read the API Documentation</router-link> after registering.
       </p>
     </div>
-
+    <!-- the form for user entering details  -->
     <Form/>
   </div>
 </template>

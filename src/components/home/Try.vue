@@ -9,8 +9,8 @@
         Fill The form below to try out sending an email. Also
          Check the JSON  object used in the request
          and the JSON  object returned
-        as reponse below.
-        <router-link to="/documentation">Learn more</router-link> on API use in the API documentation.
+        as reponse below👇.
+         <router-link to="/documentation">Read the API documentation</router-link> to learn more  on API usage.
         <router-link to="/register">Register for an API key </router-link> to  start using Xend Mail API.
       </div>
     </div>
@@ -128,7 +128,7 @@
            <span class="attr">HTTP Method:</span> POST
          </p>
          <p>
-           <span class="attr">HTTP Headers:</span> Content-Type:application/json, X-Api-key: [your api key]
+           <span class="attr">HTTP Headers:</span> Content-Type:application/json, X-Api-Key: [your api key]
         </p>
       </div>
     </div>

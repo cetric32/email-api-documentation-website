@@ -49,7 +49,7 @@
           <input type="checkbox" class="form-check-input"
           required v-model="agree"
           id="agree">
-          <label class="form-check-label" for="agree">You agree we sent you email</label>
+          <label class="form-check-label" for="agree">You agree we sent you emails relating to this API</label>
         </div>
         <button type="submit" :disabled='notFilled' class="btn btn-primary btn-block" id="send">Register</button>
       </form>

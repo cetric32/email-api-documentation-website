@@ -11,17 +11,17 @@
       <tbody>
         <tr>
           <th scope="row">1</th>
-          <td>to</td>
+          <td>to <sup class="text-danger">*</sup></td>
           <td>array</td>
         </tr>
         <tr>
           <th scope="row">2</th>
-          <td>name</td>
+          <td>name <sup class="text-danger">*</sup></td>
           <td>string</td>
         </tr>
         <tr>
           <th scope="row">3</th>
-          <td>from</td>
+          <td>from <sup class="text-danger">*</sup></td>
           <td>string</td>
         </tr>
         <tr>
@@ -41,16 +41,22 @@
         </tr>
         <tr>
           <th scope="row">7</th>
-          <td>subject</td>
+          <td>subject <sup class="text-danger">*</sup></td>
           <td>string</td>
         </tr>
         <tr>
           <th scope="row">8</th>
-          <td>body</td>
+          <td>body <sup class="text-danger">*</sup></td>
           <td>string</td>
+        </tr>
+        <tr>
+          <th scope="row">8</th>
+          <td>smtp</td>
+          <td>object</td>
         </tr>
       </tbody>
     </table>
+    Note: <span class="text-danger">*</span> -> required fields
   </div>
 </template>
 
